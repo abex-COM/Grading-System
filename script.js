@@ -2,7 +2,6 @@
 const gpa = document.querySelector(".gpa span");
 const totaletc = document.querySelector(".totaletc span");
 
-
 let totalECTS = 0;
 let totalGradePoints = 0;
 
@@ -16,8 +15,8 @@ document.querySelector(".calculate").addEventListener("click", () => {
       const ECTS = calculateCredit(credits);
       const gradePoints = calculateGradePoints(grade);
       totalECTS += ECTS;
-      if(grade.length!==0 && credits.length!==0){
-      totalGradePoints += ECTS * gradePoints;
+      if (grade.length !== 0 && credits.length !== 0) {
+        totalGradePoints += ECTS * gradePoints;
       }
     }
   });
@@ -26,7 +25,6 @@ document.querySelector(".calculate").addEventListener("click", () => {
 
   gpa.textContent = calculatedGPA.toFixed(2);
   totaletc.textContent = totalECTS.toFixed(2);
-  
 });
 
 function calculateCredit(credit) {
@@ -43,23 +41,23 @@ function calculateCredit(credit) {
 
 function calculateGradePoints(grade) {
   let gradePoints = 0;
-  if (grade === "A" || grade === "A+") {
+  if (grade === "A" || grade === "A+" || grade === "a+" || grade === "a") {
     gradePoints = 4;
-  } else if (grade === "A-") {
+  } else if (grade === "A-" || grade === "a-") {
     gradePoints = 3.75;
-  } else if (grade === "B+") {
+  } else if (grade === "B+" || grade === "b+") {
     gradePoints = 3.5;
-  } else if (grade === "B") {
+  } else if (grade === "B" || grade === "b") {
     gradePoints = 3.0;
-  } else if (grade === "B-") {
+  } else if (grade === "B-" || grade === "b-") {
     gradePoints = 2.75;
-  } else if (grade === "C+") {
+  } else if (grade === "C+" || grade === "c+") {
     gradePoints = 2.5;
-  } else if (grade === "C") {
+  } else if (grade === "C" || grade === "c") {
     gradePoints = 2.0;
-  } else if (grade === "C-") {
+  } else if (grade === "C-" || grade === "c-") {
     gradePoints = 1.75;
-  } else if (grade === "D") {
+  } else if (grade === "D" || grade === "d") {
     gradePoints = 1;
   } else if (grade === "F") {
     gradePoints = 0;
