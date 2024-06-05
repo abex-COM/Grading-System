@@ -33,15 +33,15 @@ h1 {
   background-color: #81d3d6;
 }
 input {
-  width: 150px;
-  height: 20px;
+  width: 200px;
+  height: 28px;
   border-radius: 1rem;
   outline: 2px greenyellow;
   border: 2px greenyellow;
   padding: 8px;
   font-weight: 700;
   font-size: 1.4rem;
-  background-color: rgb(203, 220, 235);
+  background-color: rgb(208, 230, 233);
 }
 input:focus {
   background-color: aliceblue;
@@ -57,7 +57,7 @@ input:focus {
   border: 2px blueviolet solid;
   box-shadow: 5px 2px 10px #111010;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 label {
   color: #ffff;
@@ -103,4 +103,13 @@ button:active {
 }
 .totaletc {
   width: 80px;
+}
+.instruction {
+  height: 100px;
+  background-color: #192db0;
+  color: #ffff;
+  display: flex;
+  padding: 1em;
+  font-size: 1.5rem;
+  border-radius: 5px;
 }
