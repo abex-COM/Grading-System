@@ -51,13 +51,14 @@ input:focus {
 
   background-color: rgb(100, 175, 241);
   width: 80%;
-  height: 80vh;
+  height: 80%;
   padding: 1rem;
   border-radius: 1rem;
   border: 2px blueviolet solid;
   box-shadow: 5px 2px 10px #111010;
   flex-direction: column;
   gap: 1.5rem;
+  justify-content: center;
 }
 label {
   color: #ffff;
