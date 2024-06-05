@@ -28,20 +28,8 @@ h1 {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: center;
   background-color: #81d3d6;
-}
-input {
-  width: 200px;
-  height: 28px;
-  border-radius: 1rem;
-  outline: 2px greenyellow;
-  border: 2px greenyellow;
-  padding: 8px;
-  font-weight: 700;
-  font-size: 1.4rem;
-  background-color: rgb(208, 230, 233);
 }
 input:focus {
   background-color: aliceblue;
@@ -62,18 +50,19 @@ input:focus {
 }
 label {
   color: #ffff;
-  font-size: 1rem;
+  font-size: 1.5rem;
   font-weight: bolder;
 }
 button {
-  width: 80px;
-  height: 20px;
+  width: 120px;
+  height: 40px;
   background-color: gold;
   border: none;
   border: 2px solid gold;
   border-radius: 5px;
   color: #0421de;
   text-align: center;
+
 }
 
 .course {
@@ -94,16 +83,18 @@ button {
   color: #ffff;
   border-radius: 1rem;
   font-family: robot;
+  font-size: 1.5rem;
 }
 button:active {
-  background-color: rgb(229, 197, 14);
+  background-color: #e5c50e;
 }
 
 .gpa {
   width: 80%;
 }
 .totaletc {
-  width: 80px;
+  width: 140px;
+  height: 100%;
 }
 .instruction {
   height: 100px;
@@ -113,4 +104,22 @@ button:active {
   padding: 1em;
   font-size: 1.5rem;
   border-radius: 5px;
+  line-height: 1.5;
+  word-spacing: 3px;
+}
+
+input {
+  width: 200px;
+  height: 30px;
+  border-radius: 5px;
+  outline: 2px greenyellow;
+  border: 2px greenyellow;
+  padding: 1rem;
+  font-weight: 700;
+  background-color: #d0e6e9;
+  display: flex;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  word-spacing: 2px;
+  align-items: center;
 }

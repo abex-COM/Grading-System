@@ -1,61 +1,68 @@
 "use strict";
 const gpa = document.querySelector(".gpa span");
+const totaletc = document.querySelector(".totaletc span");
+
+
+let totalECTS = 0;
+let totalGradePoints = 0;
 
 document.querySelector(".calculate").addEventListener("click", () => {
-    let ETCS=0;
-  let course1 = document.querySelector(".course1").value.split("/");
-  let course3 = document.querySelector(".course1").value.split("/");
-  let course4 = document.querySelector(".course1").value.split("/");
-  let course5 = document.querySelector(".course1").value.split("/");
-  let course2 = document.querySelector(".course1").value.split("/");
-  let course6 = document.querySelector(".course1").value.split("/");
-  let course7 = document.querySelector(".course1").value.split("/");
+  const courseInputs = document.querySelectorAll("input");
 
-  let course1Chr = course1[1];
-  let course2Chr = course2[1];
-  let course3Chr = course3[1];
-  let course4Chr = course4[1];
-  let course5Chr = course5[1];
-  let course6Chr = course6[1];
-  let course7Chr = course7[1];
+  courseInputs.forEach((courseInput) => {
+    const inputValue = courseInput.value;
+    if (inputValue.includes("/")) {
+      const [grade, credits] = inputValue.split("/");
+      const ECTS = calculateCredit(credits);
+      const gradePoints = calculateGradePoints(grade);
+      totalECTS += ECTS;
+      if(grade.length!==0 && credits.length!==0){
+      totalGradePoints += ECTS * gradePoints;
+      }
+    }
+  });
 
-  let grade1 = course1[0];
-  let grade2 = course2[0];
-  let grade3 = course3[0];
-  let grade4 = course4[0];
-  let grade5 = course5[0];
-  let grade6 = course6[0];
-  let grade7 = course7[0];
+  const calculatedGPA = totalGradePoints / totalECTS;
 
-  if (
-    course1Chr ||
-    course2Chr ||
-    course3Chr ||
-    course4Chr ||
-    course5Chr ||
-    course6Chr ||
-    course7Chr == "3"
-  ) {
-    ETCS = 5;
-  } else if (
-    course1Chr ||
-    course2Chr ||
-    course3Chr ||
-    course4Chr ||
-    course5Chr ||
-    course6Chr ||
-    course7Chr == "4"
-  ) {
-    ETCS = 7;
-  } else if (
-    course1Chr ||
-    course2Chr ||
-    course3Chr ||
-    course4Chr ||
-    course5Chr ||
-    course6Chr ||
-    course7Chr == "5"
-  ) {
-    ETCS = 9;
-  }
+  gpa.textContent = calculatedGPA.toFixed(2);
+  totaletc.textContent = totalECTS.toFixed(2);
+  
 });
+
+function calculateCredit(credit) {
+  let ECTS = 0;
+  if (credit === "3") {
+    ECTS = 5;
+  } else if (credit === "4") {
+    ECTS = 7;
+  } else if (credit === "2") {
+    ECTS = 4;
+  }
+  return ECTS;
+}
+
+function calculateGradePoints(grade) {
+  let gradePoints = 0;
+  if (grade === "A" || grade === "A+") {
+    gradePoints = 4;
+  } else if (grade === "A-") {
+    gradePoints = 3.75;
+  } else if (grade === "B+") {
+    gradePoints = 3.5;
+  } else if (grade === "B") {
+    gradePoints = 3.0;
+  } else if (grade === "B-") {
+    gradePoints = 2.75;
+  } else if (grade === "C+") {
+    gradePoints = 2.5;
+  } else if (grade === "C") {
+    gradePoints = 2.0;
+  } else if (grade === "C-") {
+    gradePoints = 1.75;
+  } else if (grade === "D") {
+    gradePoints = 1;
+  } else if (grade === "F") {
+    gradePoints = 0;
+  }
+  return gradePoints;
+}
